@@ -47,7 +47,8 @@ const email = (state = defaultState, action: IAction) => {
           Error: `${action.error.message}. Please check your connection.`
         },
         isFetching: false,
-        isPristine: false
+        isPristine: false,
+        validation: null,
       }
 
     case EMAIL_SUGGESTION:

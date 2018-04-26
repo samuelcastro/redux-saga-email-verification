@@ -77,7 +77,7 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
 
           {
             !this.props.isFormPristine && !this.props.isSmtpCheck && !errorMessages.length && (
-              <ErrorMessage message={'Sorry but we can\'t proceed without a valid email =('} />
+              <ErrorMessage message={'Oops! You need to provide a valid email. =('} />
             )
           }
 
