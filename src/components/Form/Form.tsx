@@ -1,7 +1,12 @@
 import * as React from 'react';
 import './Form.css';
 
-const Form = (props: any) => (
+export interface ISFCFormProps {
+  image: any;
+  title?: string;
+}
+
+const Form: React.SFC<ISFCFormProps> = (props) => (
   <div className='wrap-form'>
 			<form className='form validate-form'>
 

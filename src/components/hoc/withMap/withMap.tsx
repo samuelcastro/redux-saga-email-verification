@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MyGoogleMaps } from '../..';
 
-const withMap = (WrappedComponent: any) => {
+const withMap = (WrappedComponent: React.ComponentType) => {
   return (props: any) => (
     <React.Fragment>
 

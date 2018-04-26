@@ -1,7 +1,21 @@
 import * as React from 'react';
 
-const withEmailSuggestion = (WrappedComponent: any) => {
-    return class extends React.Component<any, any> {
+interface IWithEmailSuggestionProps {
+  id: string;
+  domains: any[];
+  value: string;
+  multiple?: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
+  autoFocus?: boolean;
+  className?: string;
+  placeholder?: string;
+  type?: string;
+}
+
+const withEmailSuggestion = (WrappedComponent: React.ComponentType) => {
+    return class extends React.Component<IWithEmailSuggestionProps, any> {
       private $el: JQuery<HTMLElement>;
 
       public componentDidMount() {

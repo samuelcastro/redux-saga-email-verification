@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-const ErrorMessage = (props: any) => (
+export interface ISFCErrorMessageProps {
+  message: string;
+}
+
+const ErrorMessage: React.SFC<ISFCErrorMessageProps> = (props) => (
   <p className='errorMessage'>{props.message}</p>
 );
 

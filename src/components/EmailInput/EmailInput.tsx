@@ -13,12 +13,12 @@ export interface ISFCEmailInputProps {
   isFetching: boolean;
   value: string;
   placeholder: string;
-  multiple: boolean;
+  multiple?: boolean;
   domains: any;
-  onKeyPress: (context: any, e: React.KeyboardEvent<HTMLInputElement>) => any;
+  onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => any;
   onBlur: (e: React.ChangeEvent<HTMLInputElement>) => any;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
-  autoFocus: boolean;
+  autoFocus?: boolean;
 }
 
 const Input = (props: any) => <input {...props} />;

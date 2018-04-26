@@ -62,8 +62,6 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
             domains={this.props.domains}
             onBlur={validateEmail(this)}
             onKeyPress={validateEmailKeyPress(this)}
-            multiple={false}
-            autoFocus={false}
             onChange={changeEmail(this)}
           />
 
