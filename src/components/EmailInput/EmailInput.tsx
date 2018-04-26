@@ -7,10 +7,24 @@ import spinner from '../../assets/spinner.svg';
 import { withEmailSuggestion } from '../../components/hoc';
 import './EmailInput.css';
 
+export interface ISFCEmailInputProps {
+  isPristine: boolean;
+  isValid: boolean;
+  isFetching: boolean;
+  value: string;
+  placeholder: string;
+  multiple: boolean;
+  domains: any;
+  onKeyPress: (context: any, e: React.KeyboardEvent<HTMLInputElement>) => any;
+  onBlur: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  autoFocus: boolean;
+}
+
 const Input = (props: any) => <input {...props} />;
 const InputSuggestion = withEmailSuggestion(Input);
 
-const Email = (props: any) => {
+const Email: React.SFC<ISFCEmailInputProps> = (props) => {
   const classes = classnames({
     EmailInputWrap: true,
     alertInvalid: !props.isPristine && !props.isValid,

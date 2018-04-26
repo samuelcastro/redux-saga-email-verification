@@ -15,17 +15,23 @@ import {
   validateEmailKeyPress
 } from './AppHelper';
 
-// interface IState {
-//   email: string
-//   isEmailValid: boolean
-// }
-//
-// interface IProps {
-//   isEmailValid: boolean
-//   validateEmailHandler: (email: string) => void
-// }
+export interface IStatefulAppProps {
+  emailSuggestion: string;
+  isFormPristine: boolean;
+  isEmailValid: boolean;
+  isFetching: boolean;
+  isSmtpCheck: boolean;
+  value: string;
+  domains: any;
+}
 
-class App extends React.PureComponent<any, any> {
+export interface IAppState {
+  email: string;
+  emailSuggestion: string;
+  errorMessages: any
+};
+
+class App extends React.Component<IStatefulAppProps, IAppState> {
   public state = {
     email: '',
     emailSuggestion: this.props.emailSuggestion,
@@ -56,6 +62,8 @@ class App extends React.PureComponent<any, any> {
             domains={this.props.domains}
             onBlur={validateEmail(this)}
             onKeyPress={validateEmailKeyPress(this)}
+            multiple={false}
+            autoFocus={false}
             onChange={changeEmail(this)}
           />
 
