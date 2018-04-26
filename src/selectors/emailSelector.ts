@@ -1,12 +1,18 @@
-import { complement, compose, equals, isNil, path, prop, propOr } from 'ramda';
+import {
+  append, complement, compose, equals, isNil,
+  path, prop, propOr, reject
+} from 'ramda';
+
 import { createSelector } from 'reselect';
 
 const smtpCheck = compose(equals('true'), prop('smtpCheck'));
 const formatCheck = compose(equals('true'), prop('formatCheck'));
 
 const email = prop('email');
-const validation = prop('validation');
+const validation = compose(prop('validation'), email);
 const suggestion = path(['email', 'suggestion']);
+const errorMessage = propOr([], 'ErrorMessage');
+const apiError = prop('apiError');
 
 // Memoization to avoid recomputation based on reselect
 // This will pottentially bring amazing performance improvements long term - Samuel
@@ -27,18 +33,19 @@ export const domainsSelector = createSelector(
 );
 
 export const emailFormatSelector = createSelector(
-  compose(validation, email),
+  validation,
   formatCheck
 );
 
 export const smtpSelector = createSelector(
-  compose(validation, email),
+  validation,
   smtpCheck
 )
 
 export const errorMessagesSelector = createSelector(
-  compose(validation, email),
-  propOr([], 'ErrorMessage')
+  compose(apiError, email),
+  compose(errorMessage, validation),
+  compose(reject(isNil), append)
 )
 
 export const emailValidationSelector = createSelector(

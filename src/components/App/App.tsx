@@ -46,8 +46,8 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
   };
 
   public render() {
-    const errorMessages = map((error: any) => (
-        <ErrorMessage message={error.Error} key={error.Error} />
+    const errorMessages = map((item: any) => (
+        <ErrorMessage message={item.Error} key={item.Error} />
     ), this.state.errorMessages)
 
     return (
@@ -76,7 +76,7 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
           {errorMessages}
 
           {
-            !this.props.isFormPristine && !this.props.isSmtpCheck && (
+            !this.props.isFormPristine && !this.props.isSmtpCheck && !errorMessages.length && (
               <ErrorMessage message={'Sorry but we can\'t proceed without a valid email =('} />
             )
           }

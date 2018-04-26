@@ -34,6 +34,7 @@ const email = (state = defaultState, action: IAction) => {
     case EMAIL_SUCCESS:
       return {
         ...state,
+        apiError: null,
         isFetching: false,
         isPristine: false,
         validation: action.response
@@ -42,7 +43,9 @@ const email = (state = defaultState, action: IAction) => {
     case EMAIL_FAILURE:
       return {
         ...state,
-        error: action.error,
+        apiError: {
+          Error: `${action.error.message}. Please check your connection.`
+        },
         isFetching: false,
         isPristine: false
       }
