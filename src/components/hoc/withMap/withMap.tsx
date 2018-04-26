@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { compose, setDisplayName } from 'recompose';
 import { MyGoogleMaps } from '../..';
 
 const withMap = (WrappedComponent: React.ComponentType) => {
@@ -19,4 +20,7 @@ const withMap = (WrappedComponent: React.ComponentType) => {
   );
 };
 
-export default withMap;
+export default compose(
+  setDisplayName('withMap'),
+  withMap
+);

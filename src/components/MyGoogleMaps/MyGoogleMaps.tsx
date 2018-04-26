@@ -2,7 +2,15 @@ import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import * as React from 'react';
 import styles from './map_invoicesimple.json';
 
-const MyGoogleMaps = (props: any) => (
+interface ISFCMyGoogleMapsProps {
+  google: any;
+  onMarkerClick?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  lat: number;
+  lng: number;
+  markerName?: string;
+}
+
+const MyGoogleMaps: React.SFC<ISFCMyGoogleMapsProps> = (props) => (
   <Map
     google={props.google}
     zoom={14}

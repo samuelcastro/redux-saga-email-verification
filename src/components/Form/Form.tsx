@@ -2,7 +2,7 @@ import * as React from 'react';
 import './Form.css';
 
 export interface ISFCFormProps {
-  image: any;
+  image?: any;
   title?: string;
 }
 

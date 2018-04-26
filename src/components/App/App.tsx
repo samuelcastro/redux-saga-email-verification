@@ -4,7 +4,7 @@ import { compose } from 'recompose';
 import { Form } from '../';
 import image from '../../assets/invoicesimples.png';
 import { EmailInput, EmailOptionSuggestion, ErrorMessage } from '../../components';
-import { withEmailValidator } from '../../containers/hoc'
+import { withEmailValidator, withErrorBoundary } from '../../containers/hoc'
 import { withMap } from '../hoc'
 import './App.css';
 
@@ -77,7 +77,7 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
 
           {
             !this.props.isFormPristine && !this.props.isSmtpCheck && (
-              <ErrorMessage message={'Please, you need to use a valid email.'} />
+              <ErrorMessage message={'Sorry but we can\'t proceed without a valid email =('} />
             )
           }
 
@@ -94,6 +94,7 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
 }
 
 export default compose(
+  withErrorBoundary,
   withMap,
   withEmailValidator
 )(App);

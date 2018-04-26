@@ -1,3 +1,5 @@
+import { IAction } from '../actions';
+
 import {
   EMAIL_DOMAINS,
   EMAIL_FAILURE,
@@ -6,14 +8,21 @@ import {
   EMAIL_SUGGESTION
 } from '../actions/types'
 
-const defaultState = {
+export interface IState {
+  readonly errorMessages: any[];
+  readonly isFetching: boolean | null;
+  readonly isPristine: boolean | null;
+  readonly suggestion: any;
+};
+
+const defaultState: IState = {
   errorMessages: [],
   isFetching: false,
   isPristine: true,
   suggestion: null,
 }
 
-const email = (state = defaultState, action: any) => {
+const email = (state = defaultState, action: IAction) => {
   switch (action.type) {
     case EMAIL_REQUEST:
       return {

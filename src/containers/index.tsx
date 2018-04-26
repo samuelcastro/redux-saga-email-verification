@@ -1,5 +1,7 @@
 import App from './App'
+import ErrorBoundary from './ErrorBoundary';
 
 export {
-  App
+  App,
+  ErrorBoundary
 }

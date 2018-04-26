@@ -1,24 +1,13 @@
 import { contains, curry } from 'ramda';
 import * as React from 'react';
 
-// interface IState {
-//   email: string
-//   isEmailValid: boolean
-// }
-//
-// interface IProps {
-//   isEmailValid: boolean
-//   validateEmailHandler: (email: string) => void
-// }
-//
-// interface IContext {
-//   state: IState
-//   props: IProps
-// }
+// Why did I create this helper?
 
-// const validateEmailHandler = curry((context: any, email: string) => {
-//   context.props.validateEmailHandler(email);
-// })
+// As a good practice I'm creating a vanila typescript helper decoupled from
+// react to handle all business logic, this is important to keep projects
+// isolated and non-dependent from any framework. For example if at some
+// point you decide to use angular, vue.js or whatever you want you won't
+// need to refactor your entire app. And this is extremily easy to test. - Samuel
 
 export const validateEmail = curry((context: any, event: React.ChangeEvent<HTMLInputElement>) => {
   return context.props.validateEmailHandler(event.target.value)

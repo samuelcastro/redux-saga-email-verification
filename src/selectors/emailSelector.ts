@@ -8,19 +8,19 @@ const email = prop('email');
 const validation = prop('validation');
 const suggestion = path(['email', 'suggestion']);
 
-// Memoization
+// Memoization to avoid recomputation based on reselect
+// This will pottentially bring amazing performance improvements long term - Samuel
+
 export const hasSuggestionSelector = createSelector(
   suggestion,
   complement(isNil)
 )
 
-// Memoization
 export const emailSuggestionSelector = createSelector(
   suggestion,
   prop('full')
 )
 
-// Memoization
 export const domainsSelector = createSelector(
   email,
   propOr([], 'domains')

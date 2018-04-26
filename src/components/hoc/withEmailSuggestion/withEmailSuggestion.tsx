@@ -14,6 +14,11 @@ interface IWithEmailSuggestionProps {
   type?: string;
 }
 
+// HOC wrapper around a jquery lib to autosuggest emails
+// Learn more on https://github.com/samuelcastro/auto-email
+// I was going to create a react version of if but I don't
+// that time now ¯\_(ツ)_/¯ - Samuel
+
 const withEmailSuggestion = (WrappedComponent: React.ComponentType) => {
     return class extends React.Component<IWithEmailSuggestionProps, any> {
       private $el: JQuery<HTMLElement>;

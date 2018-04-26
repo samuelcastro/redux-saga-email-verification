@@ -4,7 +4,9 @@ import { validateEmailAction } from '../actions';
 import { EMAIL_REQUEST } from '../actions/types';
 import { validateEmailService } from '../services';
 
-// Just a new few domains that maincheck doesn't have
+// NOTE: I'm using redux-sagas here. Generators are so powerful
+
+// Just a new few domains that maincheck doesn't have ;) - Samuel
 const DEFAULT_DOMAINS = [
   'aol.com', 'att.net', 'comcast.net', 'facebook.com', 'gmail.com', 'gmail.co.uk',
   'gmx.com', 'googlemail.com', 'google.com', 'hotmail.com', 'hotmail.co.uk', 'mac.com',
@@ -12,6 +14,7 @@ const DEFAULT_DOMAINS = [
   'me.com', 'mail.com', 'msn.com',
 ];
 
+// Validating some typo and adding a suggestion.
 const validateEmailTypo = function* (email: string) {
   yield call(Mailcheck.run, {
     email,
@@ -24,6 +27,7 @@ const validateEmailTypo = function* (email: string) {
   })
 }
 
+// Getting default mailcheck domains and adding a few more.
 const defaultDomains = function* () {
   const domains = Mailcheck.defaultDomains.concat(DEFAULT_DOMAINS);
 
@@ -32,6 +36,7 @@ const defaultDomains = function* () {
   yield put(validateEmailAction.domains(Mailcheck.defaultDomains))
 }
 
+// Verifying email based on https://emailverification.whoisxmlapi
 const verifyEmail = function* (email: string) {
   try {
     const {json} = yield call(validateEmailService, email);
@@ -43,6 +48,7 @@ const verifyEmail = function* (email: string) {
   }
 }
 
+// Emiting a parallel fork effect to whne some REQUEST action arrive
 const validateEmail = function* (action: any) {
   yield all([
     fork(validateEmailTypo, action.email),
@@ -50,6 +56,7 @@ const validateEmail = function* (action: any) {
   ])
 };
 
+// Listening for REQUEST actions and calling validateEmail
 const watchEmailInputChange = function* () {
   yield takeLatest(EMAIL_REQUEST, validateEmail)
 };

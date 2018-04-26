@@ -13,8 +13,8 @@ export const createRequestTypes = (base: any) => {
 
 export const EMAIL = createRequestTypes('EMAIL');
 
-export const EMAIL_DOMAINS = EMAIL[DOMAINS];
-export const EMAIL_REQUEST = EMAIL[REQUEST];
-export const EMAIL_SUCCESS = EMAIL[SUCCESS];
-export const EMAIL_FAILURE = EMAIL[FAILURE];
-export const EMAIL_SUGGESTION = EMAIL[SUGGESTION];
+export const EMAIL_DOMAINS: string = EMAIL[DOMAINS];
+export const EMAIL_REQUEST: string = EMAIL[REQUEST];
+export const EMAIL_SUCCESS: string = EMAIL[SUCCESS];
+export const EMAIL_FAILURE: string = EMAIL[FAILURE];
+export const EMAIL_SUGGESTION: string = EMAIL[SUGGESTION];

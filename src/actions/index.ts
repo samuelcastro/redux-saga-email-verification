@@ -6,40 +6,20 @@ import {
   EMAIL_SUGGESTION
 } from './types';
 
-export const action = (type: any, payload = {}) => ({type, ...payload})
-
-export const validateEmailAction = {
-  domains: (domains: any) => action(EMAIL_DOMAINS, {domains}),
-  failure: (email: any, error: any) => action(EMAIL_FAILURE, {email, error}),
-  request: (email: any) => action(EMAIL_REQUEST, {email}),
-  success: (email: any, response: any) => action(EMAIL_SUCCESS, {email, response}),
-  suggestion: (suggestion: any) => action(EMAIL_SUGGESTION, {suggestion})
+export interface IAction {
+  type: string;
+  response?: any;
+  suggestion?: any;
+  error: any;
+  domains: any[]
 }
 
-// export const EMAIL_REQUEST = 'EMAIL_REQUEST'
-// export const EMAIL_SUCCESS = 'EMAIL_SUCCESS'
-// export const EMAIL_FAILURE = 'EMAIL_FAILURE'
-//
-//
-// export function emailRequest(email: string) {
-//   return {
-//     type: EMAIL_REQUEST,
-//     email,
-//   }
-// }
-//
-// export function emailSuccess(email: string, response: any) {
-//   return {
-//     type: EMAIL_SUCCESS,
-//     email,
-//     response
-//   }
-// }
-//
-// export function emailFailure(email: string, error: any) {
-//   return {
-//     type: EMAIL_SUCCESS,
-//     email,
-//     error
-//   }
-// }
+export const action = (type: string, payload = {}) => ({type, ...payload})
+
+export const validateEmailAction = {
+  domains: (domains: any[]) => action(EMAIL_DOMAINS, {domains}),
+  failure: (email: string, error: any) => action(EMAIL_FAILURE, {email, error}),
+  request: (email: string) => action(EMAIL_REQUEST, {email}),
+  success: (email: string, response: any) => action(EMAIL_SUCCESS, {email, response}),
+  suggestion: (suggestion: any) => action(EMAIL_SUGGESTION, {suggestion})
+}
