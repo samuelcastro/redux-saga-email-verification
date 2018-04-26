@@ -48,7 +48,7 @@ const verifyEmail = function* (email: string) {
   }
 }
 
-// Emiting a parallel fork effect to whne some REQUEST action arrive
+// Emmiting a parallel fork effect when some REQUEST action arrive
 const validateEmail = function* (action: any) {
   yield all([
     fork(validateEmailTypo, action.email),
