@@ -1,8 +1,16 @@
-import { EMAIL_FAILURE, EMAIL_REQUEST, EMAIL_SUCCESS } from '../actions/types'
+import {
+  EMAIL_DOMAINS,
+  EMAIL_FAILURE,
+  EMAIL_REQUEST,
+  EMAIL_SUCCESS,
+  EMAIL_SUGGESTION
+} from '../actions/types'
 
 const defaultState = {
+  errorMessages: [],
   isFetching: false,
-  items: [],
+  isPristine: true,
+  suggestion: null,
 }
 
 const email = (state = defaultState, action: any) => {
@@ -10,21 +18,37 @@ const email = (state = defaultState, action: any) => {
     case EMAIL_REQUEST:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        isPristine: false
        }
 
     case EMAIL_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        items: action.posts
+        isPristine: false,
+        validation: action.response
       }
 
     case EMAIL_FAILURE:
       return {
         ...state,
         error: action.error,
-        isFetching: false
+        isFetching: false,
+        isPristine: false
+      }
+
+    case EMAIL_SUGGESTION:
+      return {
+        ...state,
+        isPristine: false,
+        suggestion: action.suggestion
+      }
+
+    case EMAIL_DOMAINS:
+      return {
+        ...state,
+        domains: action.domains
       }
 
     default:
@@ -33,42 +57,3 @@ const email = (state = defaultState, action: any) => {
 }
 
 export default email;
-
-// function products(state, action) {
-//   switch (action.type) {
-//     case ADD_TO_CART:
-//       return {
-//         ...state,
-//         inventory: state.inventory - 1
-//       }
-//       case REMOVE_FROM_CART:
-//         return {
-//           ...state,
-//           inventory: state.inventory + 1
-//         }
-//     default:
-//       return state
-//   }
-// }
-//
-// function byId(state = {}, action) {
-//   switch (action.type) {
-//     case RECEIVE_PRODUCTS:
-//       return {
-//         ...state,
-//         ...action.products.reduce((obj, product) => {
-//           obj[product.id] = product
-//           return obj
-//         }, {})
-//       }
-//     default:
-//       const { productId } = action
-//       if (productId) {
-//         return {
-//           ...state,
-//           [productId]: products(state[productId], action)
-//         }
-//       }
-//       return state
-//   }
-// }

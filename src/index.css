@@ -7,6 +7,11 @@
 }
 
 @font-face {
+  font-family: JosefinSans-Light;
+  src: url('./assets/fonts/JosefinSans/JosefinSans-Light.ttf');
+}
+
+@font-face {
   font-family: Oswald-Medium;
   src: url('./assets/fonts/oswald/Oswald-Medium.ttf');
 }
@@ -27,11 +32,13 @@ body, html {
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
-	font-size: 14px;
+	font-family: JosefinSans-Bold;
+	font-size: 16px;
 	line-height: 1.7;
 	color: #666666;
 	margin: 0px;
+  cursor: pointer;
+  text-decoration: underline;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -39,11 +46,11 @@ a {
 }
 
 a:focus {
-	outline: none !important;
+	 text-decoration: underline;
 }
 
 a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 /*---------------------------------------------*/
@@ -52,8 +59,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
-	font-size: 14px;
+	font-family: JosefinSans-Light;
+	font-size: 16px;
 	line-height: 1.7;
 	color: #666666;
 	margin: 0px;

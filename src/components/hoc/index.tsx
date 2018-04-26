@@ -1,3 +1,7 @@
+import withEmailSuggestion from './withEmailSuggestion'
 import withMap from './withMap';
 
-export { withMap };
+export {
+  withEmailSuggestion,
+  withMap
+ };

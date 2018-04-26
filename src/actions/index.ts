@@ -1,11 +1,19 @@
-import { EMAIL_FAILURE, EMAIL_REQUEST, EMAIL_SUCCESS } from './types';
+import {
+  EMAIL_DOMAINS,
+  EMAIL_FAILURE,
+  EMAIL_REQUEST,
+  EMAIL_SUCCESS,
+  EMAIL_SUGGESTION
+} from './types';
 
 export const action = (type: any, payload = {}) => ({type, ...payload})
 
-export const emailAction = {
+export const validateEmailAction = {
+  domains: (domains: any) => action(EMAIL_DOMAINS, {domains}),
   failure: (email: any, error: any) => action(EMAIL_FAILURE, {email, error}),
   request: (email: any) => action(EMAIL_REQUEST, {email}),
-  success: (email: any, response: any) => action(EMAIL_SUCCESS, {email, response})
+  success: (email: any, response: any) => action(EMAIL_SUCCESS, {email, response}),
+  suggestion: (suggestion: any) => action(EMAIL_SUGGESTION, {suggestion})
 }
 
 // export const EMAIL_REQUEST = 'EMAIL_REQUEST'

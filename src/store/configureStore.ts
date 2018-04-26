@@ -3,8 +3,6 @@ import createSagaMiddleware from 'redux-saga'
 import { createSagaMonitor } from 'redux-saga-devtools';
 import rootReducer from '../reducers'
 
-  // <DockableSagaView monitor={monitor}  />
-
 const sagaMonitor = createSagaMonitor()
 
 export default function configureStore() {

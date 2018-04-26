@@ -4,6 +4,7 @@ import { MyGoogleMaps } from '../..';
 const withMap = (WrappedComponent: any) => {
   return (props: any) => (
     <React.Fragment>
+
       <section className='withMap'>
         <MyGoogleMaps
           markerName={'Invoice Simples'}
@@ -11,7 +12,9 @@ const withMap = (WrappedComponent: any) => {
           lng={-123.1117801}
         />
       </section>
+
       <WrappedComponent {...props} />
+
     </React.Fragment>
   );
 };
