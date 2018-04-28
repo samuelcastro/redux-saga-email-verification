@@ -1,9 +1,8 @@
-import { map } from 'ramda';
 import * as React from 'react';
 import { compose } from 'recompose';
 import { Form } from '../';
 import image from '../../assets/invoicesimples.png';
-import { EmailInput, EmailOptionSuggestion, ErrorMessage } from '../../components';
+import { EmailInput, EmailOptionSuggestion, Messages } from '../../components';
 import { withEmailValidator, withErrorBoundary } from '../../containers/hoc'
 import { withMap } from '../hoc'
 import './App.css';
@@ -17,6 +16,7 @@ import {
 
 export interface IStatefulAppProps {
   emailSuggestion: string;
+  errorMessages: any[];
   isFormPristine: boolean;
   isEmailValid: boolean;
   isFetching: boolean;
@@ -28,28 +28,21 @@ export interface IStatefulAppProps {
 export interface IAppState {
   email: string;
   emailSuggestion: string;
-  errorMessages: any
 };
 
 class App extends React.Component<IStatefulAppProps, IAppState> {
   public state = {
     email: '',
-    emailSuggestion: this.props.emailSuggestion,
-    errorMessages: []
+    emailSuggestion: this.props.emailSuggestion
   };
 
   public componentWillReceiveProps(props: any) {
     this.setState({
-      emailSuggestion: props.emailSuggestion,
-      errorMessages: props.errorMessages
+      emailSuggestion: props.emailSuggestion
     });
   };
 
   public render() {
-    const errorMessages = map((item: any) => (
-        <ErrorMessage message={item.Error} key={item.Error} />
-    ), this.state.errorMessages)
-
     return (
       <div className='App'>
         <Form image={image}>
@@ -73,19 +66,14 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
               />
           }
 
-          {errorMessages}
-
-          {
-            !this.props.isFormPristine && !this.props.isSmtpCheck && !errorMessages.length && (
-              <ErrorMessage message={'Oops! You need to provide a valid email. =('} />
-            )
-          }
-
-          {
-            this.props.isEmailValid && (
-              <p className='success'>Thank you! Email successfully validated.</p>
-            )
-          }
+          <Messages
+            errors={this.props.errorMessages}
+            errorWhen={!!this.props.errorMessages}
+            warning='Oops! You need to provide a valid email. =('
+            warningWhen={!this.props.isFormPristine && !this.props.isSmtpCheck && !this.props.errorMessages.length}
+            success='Thank you! Email successfully validated.'
+            successWhen={this.props.isEmailValid}
+          />
 
         </Form>
       </div>

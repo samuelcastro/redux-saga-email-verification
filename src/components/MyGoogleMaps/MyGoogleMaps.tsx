@@ -22,8 +22,8 @@ const MyGoogleMaps: React.SFC<ISFCMyGoogleMapsProps> = (props) => (
   >
     <Marker onClick={props.onMarkerClick} name={props.markerName} />
   </Map>
-)
+);
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCNn7LPh706GgJ6kjt3kpbHV4YrmCv3dRQ'
-})(MyGoogleMaps)
+})(MyGoogleMaps);

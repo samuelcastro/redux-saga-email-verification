@@ -16,6 +16,6 @@ const validateEmail = (email: string) => {
     .then(response => {
       return response.json().then(json => ({ json, response }));
     });
-}
+};
 
 export default validateEmail;

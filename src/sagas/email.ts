@@ -25,7 +25,7 @@ const validateEmailTypo = function* (email: string) {
       yield put(validateEmailAction.suggestion(suggestion));
     }
   })
-}
+};
 
 // Getting default mailcheck domains and adding a few more.
 const defaultDomains = function* () {

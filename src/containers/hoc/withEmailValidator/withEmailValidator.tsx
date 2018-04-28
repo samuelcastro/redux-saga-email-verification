@@ -37,7 +37,7 @@ const mapStateToProps = (state: any) => ({
   isFormPristine: state.email.isPristine,
   isFormatValid: emailFormatSelector(state),
   isSmtpCheck: smtpSelector(state)
-})
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
   validateEmailHandler: (email: string) => {

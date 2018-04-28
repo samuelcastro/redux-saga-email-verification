@@ -20,7 +20,7 @@ const defaultState: IState = {
   isFetching: false,
   isPristine: true,
   suggestion: null,
-}
+};
 
 const email = (state = defaultState, action: IAction) => {
   switch (action.type) {

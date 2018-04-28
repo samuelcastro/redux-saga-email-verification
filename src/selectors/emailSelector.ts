@@ -1,6 +1,6 @@
 import {
-  append, complement, compose, equals, isNil,
-  path, prop, propOr, reject
+  append, complement, compose, equals, is, isNil,
+  of, path, prop, propOr, reject, unless
 } from 'ramda';
 
 import { createSelector } from 'reselect';
@@ -11,7 +11,9 @@ const formatCheck = compose(equals('true'), prop('formatCheck'));
 const email = prop('email');
 const validation = compose(prop('validation'), email);
 const suggestion = path(['email', 'suggestion']);
-const errorMessage = propOr([], 'ErrorMessage');
+const errorMessageProp = propOr([], 'ErrorMessage');
+const unlessIsArray = unless(is(Array), of);
+const errorMessage = compose(unlessIsArray, errorMessageProp);
 const apiError = prop('apiError');
 
 // Memoization to avoid recomputation based on reselect
