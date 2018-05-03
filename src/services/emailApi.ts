@@ -1,4 +1,4 @@
-const API_KEY = 'at_IgfwP6LAsqYo9COFlJQWNUbXDWoNc';
+const API_KEY = 'ADD_HERE_YOUR_API_KEY'; // https://emailverification.whoisxmlapi.com
 const API = 'https://emailverification.whoisxmlapi.com/api/v1?';
 
 // NOTE
