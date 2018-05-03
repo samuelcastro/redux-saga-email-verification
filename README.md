@@ -4,6 +4,7 @@
 - [Reselect](https://github.com/reduxjs/reselect)
   - [Learn more about Memoization](https://en.wikipedia.org/wiki/Memoization)
 - [Recompose](https://github.com/acdlite/recompose)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Ramda](http://ramdajs.com/)
   - [Learn more about Functional Programming](https://en.wikipedia.org/wiki/Functional_programming)
 - [Email Verification API](https://emailverification.whoisxmlapi.com)
