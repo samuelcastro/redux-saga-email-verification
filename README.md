@@ -10,6 +10,8 @@
 - [Email Verification API](https://emailverification.whoisxmlapi.com)
  - You need to update your API_KEY on [src/services/emailApi.ts](https://github.com/samuelcastro/redux-saga-email-verification/blob/master/src/services/emailApi.ts)
 
+Since this is just a frontend project to run this locally you'll need to install this [chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi) to bypass CORS on your browse. 
+
 ### React
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
