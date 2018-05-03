@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { compose } from 'recompose';
 import { Form } from '../';
-import image from '../../assets/invoicesimples.png';
 import { EmailInput, EmailOptionSuggestion, Messages } from '../../components';
 import { withEmailValidator, withErrorBoundary } from '../../containers/hoc'
 import { withMap } from '../hoc'
@@ -45,9 +44,9 @@ class App extends React.Component<IStatefulAppProps, IAppState> {
   public render() {
     return (
       <div className='App'>
-        <Form image={image}>
+        <Form title='Enter your email and press Enter/Tab'>
           <EmailInput
-            placeholder='Enter your email and press Enter/Tab'
+            placeholder='Email'
             value={this.state.email}
             isFetching={this.props.isFetching}
             isValid={this.props.isEmailValid}

@@ -1,7 +1,7 @@
 {
-  "name": "invoicesimple",
+  "name": "redux-saga-email-verification",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "classnames": "^2.2.5",
     "google-maps-react": "^2.0.0",

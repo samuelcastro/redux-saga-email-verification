@@ -1,6 +1,6 @@
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import * as React from 'react';
-import styles from './map_invoicesimple.json';
+import styles from './map_orange.json';
 
 interface ISFCMyGoogleMapsProps {
   google: any;

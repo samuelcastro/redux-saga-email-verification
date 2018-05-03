@@ -10,8 +10,10 @@ const Form: React.SFC<ISFCFormProps> = (props) => (
   <div className='wrap-form'>
 			<form className='form validate-form'>
 
+        <span className='title'>{props.title}</span>
+
         <span className='form-image'>
-          <img src={props.image} className='form-img'/> {props.title}
+          <img src={props.image} className='form-img'/>
 				</span>
 
         {props.children}

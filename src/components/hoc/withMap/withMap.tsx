@@ -8,9 +8,9 @@ const withMap = (WrappedComponent: React.ComponentType) => {
 
       <section className='withMap'>
         <MyGoogleMaps
-          markerName={'Invoice Simples'}
-          lat={49.2817386}
-          lng={-123.1117801}
+          markerName={'Beautiful British Columbia | Vancouver'}
+          lat={49.2803838}
+          lng={-123.1121465}
         />
       </section>
 
