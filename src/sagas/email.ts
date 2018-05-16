@@ -10,7 +10,7 @@ import { validateEmailService } from '../services';
 const DEFAULT_DOMAINS = [
   'aol.com', 'att.net', 'comcast.net', 'facebook.com', 'gmail.com', 'gmail.co.uk',
   'gmx.com', 'googlemail.com', 'google.com', 'hotmail.com', 'hotmail.co.uk', 'mac.com',
-  'live.com', 'sbcglobal.net', 'verizon.net', 'yahoo.com', 'yahoo.co.uk', 'invoicesimple.com',
+  'live.com', 'sbcglobal.net', 'verizon.net', 'yahoo.com', 'yahoo.co.uk', 'edvisor.io',
   'me.com', 'mail.com', 'msn.com',
 ];
 
